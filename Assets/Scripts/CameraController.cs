@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     Transform[] views;
     [SerializeField]
-    float transitionSpeed,magnitude;
+    float transitionSpeed;
 
     public CameraShake cameraShake;
 
@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && check)
         {
 
-            StartCoroutine(Shake(0.5f, magnitude));
+            StartCoroutine(Shake(0.5f));
             StartCoroutine(changeAfterTime(0.5f, views[0]));
 
             StartCoroutine(ExecuteAfterTime(2f, views[1]));
@@ -34,21 +34,21 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && check)
         {
 
-            StartCoroutine(Shake(0.5f, magnitude));
+            StartCoroutine(Shake(0.5f));
             StartCoroutine(changeAfterTime(0.5f, views[2]));
 
             StartCoroutine(ExecuteAfterTime(2f, views[3]));
         }
         if (Input.GetKeyDown(KeyCode.E) && check)
         {
-            StartCoroutine(Shake(0.5f, magnitude));
+            StartCoroutine(Shake(0.5f));
             StartCoroutine(changeAfterTime(0.5f, views[4]));
             
             StartCoroutine(ExecuteAfterTime(2f, views[5])); 
         }
         if (Input.GetKeyDown(KeyCode.R) && check)
         {
-            StartCoroutine(Shake(0.5f, magnitude));
+            StartCoroutine(Shake(0.5f));
             StartCoroutine(changeAfterTime(0.5f, views[6]));
 
             StartCoroutine(ExecuteAfterTime(2f, views[7]));
@@ -62,37 +62,7 @@ public class CameraController : MonoBehaviour
     }
 
    
-    void LateUpdate()
-    {
-
-      
-      /*
-        if (currentView != null && yes == false)
-        {
-             transform.position = Vector3.Lerp(transform.position, currentView.position, Time.deltaTime * transitionSpeed);
-            transform.position = currentView.position;
-
-             Vector3 currentAngle = new Vector3(
-              Mathf.LerpAngle(transform.rotation.eulerAngles.x, currentView.transform.rotation.eulerAngles.x, Time.deltaTime * transitionSpeed),
-              Mathf.LerpAngle(transform.rotation.eulerAngles.y, currentView.transform.rotation.eulerAngles.y, Time.deltaTime * transitionSpeed),
-              Mathf.LerpAngle(transform.rotation.eulerAngles.z, currentView.transform.rotation.eulerAngles.z, Time.deltaTime * transitionSpeed));
-          
-            transform.eulerAngles = currentView.transform.eulerAngles;
-        }
-        if (yes && currentView != null)
-        {
-            transform.position = Vector3.Lerp(transform.position, currentView.position, Time.deltaTime * transitionSpeed);
-            Vector3 currentAngle = new Vector3(
-              Mathf.LerpAngle(transform.rotation.eulerAngles.x, currentView.transform.rotation.eulerAngles.x, Time.deltaTime * transitionSpeed),
-              Mathf.LerpAngle(transform.rotation.eulerAngles.y, currentView.transform.rotation.eulerAngles.y, Time.deltaTime * transitionSpeed),
-              Mathf.LerpAngle(transform.rotation.eulerAngles.z, currentView.transform.rotation.eulerAngles.z, Time.deltaTime * transitionSpeed));
-
-            transform.eulerAngles = currentAngle;
-
-            yes = false;
-        }
-        */
-    }
+    
    /* public void loop()
     {
         if (check && counter == 0)
@@ -140,40 +110,60 @@ public class CameraController : MonoBehaviour
         {
 
 
-           
-
             yield return new WaitForSeconds(time);
+
+            //yield return new WaitForSeconds(time);
             currentView = vector;
-            transition();
-            
+                //transition();
 
+            Vector3 originalPos = transform.position;
 
-        }
-        IEnumerator Shake(float duration, float magnitude)
-    {
-        check = false;
+            float elapsed = 0.0f;
+            /*
+            while (elapsed < 1f)
+            {
 
-        Vector3 originalPos = transform.eulerAngles;
+               
+                
 
-        float elapsed = 0.0f;
+                transform.position =  Vector3.Lerp(originalPos,currentView.position, (elapsed/ 0.5f) );
 
-        while (elapsed < duration)
-        {
-                    
-            float z = Random.Range(originalPos.z - magnitude - 10   , originalPos.z + magnitude + 10) ;
-            //float y = Random.Range(-1f, 1f) * magnitude;
-            
-            transform.eulerAngles = new Vector3(originalPos.x , originalPos.y , z);
+                elapsed += Time.deltaTime;
 
-            elapsed += Time.deltaTime;
+                yield return null;
+            }*/
+                
 
-            yield return null;
-        }
+            transform.position = currentView.position;
 
-            
-         transform.eulerAngles = originalPos;
+      
 
     }
+        IEnumerator Shake(float duration)
+        {
+            check = false;
+
+            Vector3 originalPos = transform.eulerAngles;
+
+            float elapsed = 0.0f;
+
+            while (elapsed < duration)
+            {
+                    
+                float z = Random.Range(originalPos.z - 10   , originalPos.z + 10) ;
+                //float y = Random.Range(-1f, 1f) * magnitude;
+            
+                transform.eulerAngles = new Vector3(originalPos.x , originalPos.y , z);
+
+                elapsed += Time.deltaTime;
+
+                yield return null;
+            }
+
+            
+             transform.eulerAngles = originalPos;
+
+        }
         void transition()
         {
         transform.position = currentView.position;
