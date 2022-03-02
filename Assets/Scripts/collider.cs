@@ -45,10 +45,10 @@ public class collider : MonoBehaviour
             Destroy(other.gameObject);      
         }
 
-        if (other.gameObject.CompareTag("next"))
+       /* if (other.gameObject.CompareTag("next"))
         {
             cam.GetComponent<CameraController>().loop();
-        }
+        }*/
 
      
         /*
