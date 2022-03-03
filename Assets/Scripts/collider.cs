@@ -16,11 +16,16 @@ public class collider : MonoBehaviour
     GameObject icon;
     [SerializeField]
     bool left;
-   
+    
+    bool checkGrab = false;
+    [SerializeField]
+    String one, two, three;
     
     void Start()
     {
-        
+        one = GameObject.Find("Engine").GetComponent<engineScript>().chosen.gameObject.name;
+        two = GameObject.Find("Engine").GetComponent<engineScript>().chosen1.gameObject.name;
+        three = GameObject.Find("Engine").GetComponent<engineScript>().chosen2.gameObject.name;
     }
 
     // Update is called once per frame
@@ -30,7 +35,8 @@ public class collider : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("food"))
+        /*
+        if (other.gameObject.CompareTag("food") && checkGrab)
         {
             if (GameObject.Find("Engine").GetComponent<engineScript>().chosen != null)
             {
@@ -44,7 +50,7 @@ public class collider : MonoBehaviour
             }
             Destroy(other.gameObject);      
         }
-
+        */
        /* if (other.gameObject.CompareTag("next"))
         {
             cam.GetComponent<CameraController>().loop();
@@ -77,6 +83,25 @@ public class collider : MonoBehaviour
             icon.SetActive(false);
         }
 
+        if (other.gameObject.CompareTag("food") && checkGrab)
+        {
+           
+           
+                if ( (!String.Equals(other.collider.gameObject.name, one))
+                    && (!String.Equals(other.collider.gameObject.name, two))
+                    && ( !String.Equals(other.collider.gameObject.name, three))  )
+                {
+                  
+                    GameObject.Find("Engine").GetComponent<engineScript>().Health -= 1;
+
+                }
+         
+
+            
+            Destroy(other.gameObject);
+           
+        }
+
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -86,6 +111,20 @@ public class collider : MonoBehaviour
             icon.SetActive(true);
         }
     }
+
+    public void checkTrue()
+    {
+        checkGrab = true;
+       // Debug.Log(checkGrab);
+       
+    }
+    public void checkFalse()
+    {
+        checkGrab = false;
+       // Debug.Log(checkGrab);
+
+    }
+
 
 
 

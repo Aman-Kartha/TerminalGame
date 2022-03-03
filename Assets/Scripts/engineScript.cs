@@ -24,7 +24,7 @@ public class engineScript : MonoBehaviour
     [SerializeField]
     GameObject heart3;
 
-    void Start()
+    void Awake()
     {
         gameobjectList = new List<GameObject>(GameObject.FindGameObjectsWithTag("food"));
 
@@ -107,7 +107,7 @@ public class engineScript : MonoBehaviour
                 text.text = "SORRY :(";
                 text2.text = "RESTARTING";
                 text3.text = "GAME";
-                StartCoroutine(  Wait(3));
+                StartCoroutine(  Wait(2));
 
                 break;
 

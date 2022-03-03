@@ -110,7 +110,7 @@ public class CameraController : MonoBehaviour
         {
 
 
-            yield return new WaitForSeconds(time);
+            //yield return new WaitForSeconds(time);
 
             //yield return new WaitForSeconds(time);
             currentView = vector;
@@ -119,7 +119,7 @@ public class CameraController : MonoBehaviour
             Vector3 originalPos = transform.position;
 
             float elapsed = 0.0f;
-            /*
+            
             while (elapsed < 1f)
             {
 
@@ -131,7 +131,7 @@ public class CameraController : MonoBehaviour
                 elapsed += Time.deltaTime;
 
                 yield return null;
-            }*/
+            }
                 
 
             transform.position = currentView.position;
@@ -150,7 +150,7 @@ public class CameraController : MonoBehaviour
             while (elapsed < duration)
             {
                     
-                float z = Random.Range(originalPos.z - 10   , originalPos.z + 10) ;
+                float z = Random.Range(originalPos.z - 5   , originalPos.z + 5) ;
                 //float y = Random.Range(-1f, 1f) * magnitude;
             
                 transform.eulerAngles = new Vector3(originalPos.x , originalPos.y , z);
@@ -175,7 +175,7 @@ public class CameraController : MonoBehaviour
         float waitTime = 1f;
             while (elapsedTime < waitTime)
             {
-             Debug.Log(currentView.position + " " + transform.position);
+             
                 transform.position = Vector3.Lerp(transform.position, currentView.position, (elapsedTime/waitTime));
                 Vector3 currentAngle = new Vector3(
                   Mathf.LerpAngle(transform.rotation.eulerAngles.x, currentView.transform.rotation.eulerAngles.x, (elapsedTime / waitTime) ),
