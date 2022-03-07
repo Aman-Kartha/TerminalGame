@@ -77,7 +77,7 @@ public class collider : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.CompareTag("test") && left)
+        if (other.gameObject.CompareTag("test") )
         {
             list.SetActive(true);
             icon.SetActive(false);
@@ -105,7 +105,7 @@ public class collider : MonoBehaviour
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("test") && left)
+        if (collision.gameObject.CompareTag("test") )
         {
             list.SetActive(false);
             icon.SetActive(true);
