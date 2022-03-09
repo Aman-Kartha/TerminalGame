@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/endScene.unity
     guid: 4ea5e236c3a5e6b40a697ba09942870f
+  - enabled: 1
+    path: Assets/Scenes/TryAgainScreen.unity
+    guid: d8e0de16a7a54824bb4311a689ef8769
   m_configObjects: {}

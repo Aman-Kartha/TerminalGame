@@ -104,9 +104,7 @@ public class engineScript : MonoBehaviour
                 heart.gameObject.SetActive(false);
                 heart2.gameObject.SetActive(false);
                 heart3.gameObject.SetActive(false);
-                text.text = "SORRY :(";
-                text2.text = "RESTARTING";
-                text3.text = "GAME";
+                SceneManager.LoadScene(4);
                 StartCoroutine(  Wait(2));
 
                 break;
