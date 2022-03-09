@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 
 public class engineScript : MonoBehaviour
 {
@@ -11,11 +13,11 @@ public class engineScript : MonoBehaviour
     List<GameObject> gameobjectList;
     public GameObject chosen,chosen1,chosen2;
     [SerializeField]
-    Text text;
+    TMP_Text text;
     [SerializeField]
-    Text text2;
+    TMP_Text text2;
     [SerializeField]
-    Text text3;
+    TMP_Text text3;
     public int Health = 3;
     [SerializeField]
      GameObject heart;
@@ -62,15 +64,15 @@ public class engineScript : MonoBehaviour
             SceneManager.LoadScene(2);
         }
         if (chosen == null) {
-            text.text = "";
+            text.fontStyle = FontStyles.Strikethrough;
         }
         if (chosen1 == null)
         {
-            text2.text = "";
+            text2.fontStyle = FontStyles.Strikethrough;
         }
         if (chosen2 == null)
         {
-            text3.text = "";
+            text3.fontStyle = FontStyles.Strikethrough;
         }
 
 
@@ -117,5 +119,8 @@ public class engineScript : MonoBehaviour
             yield return new WaitForSeconds(i);
             SceneManager.LoadScene(1);
         }
+
+
+      
     }
 }
