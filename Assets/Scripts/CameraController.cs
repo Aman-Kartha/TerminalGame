@@ -39,14 +39,14 @@ public class CameraController : MonoBehaviour
 
             StartCoroutine(ExecuteAfterTime(2f, views[3]));
         }
-        if (Input.GetKeyDown(KeyCode.E) && check)
+       /* if (Input.GetKeyDown(KeyCode.E) && check)
         {
             StartCoroutine(Shake(0.5f));
             StartCoroutine(changeAfterTime(0.5f, views[4]));
             
             StartCoroutine(ExecuteAfterTime(2f, views[5])); 
-        }
-        if (Input.GetKeyDown(KeyCode.R) && check)
+        }*/
+        if (Input.GetKeyDown(KeyCode.E) && check)
         {
             StartCoroutine(Shake(0.5f));
             StartCoroutine(changeAfterTime(0.5f, views[6]));
