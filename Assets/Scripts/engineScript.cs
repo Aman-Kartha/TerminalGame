@@ -106,7 +106,7 @@ public class engineScript : MonoBehaviour
                 heart.gameObject.SetActive(false);
                 heart2.gameObject.SetActive(false);
                 heart3.gameObject.SetActive(false);
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(3);
                 StartCoroutine(  Wait(2));
 
                 break;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 public class collider : MonoBehaviour
 {
     int count = 0;
@@ -16,13 +17,24 @@ public class collider : MonoBehaviour
     GameObject icon;
     [SerializeField]
     bool left;
-    
+    GameObject holder;
+    [SerializeField]
+    GameObject UI1;
     bool checkGrab = false;
+ 
+    bool UIcheck = true;
     [SerializeField]
     String one, two, three;
-    
+
+    Color colorOn;
+    Color colorOff;
+
     void Start()
     {
+       
+       // Color colorOn = new Color(0, 0, 1f, 1f);
+       // Color ColorOff = new Color(0, 0, 0, 0);
+
         one = GameObject.Find("Engine").GetComponent<engineScript>().chosen.gameObject.name;
         two = GameObject.Find("Engine").GetComponent<engineScript>().chosen1.gameObject.name;
         three = GameObject.Find("Engine").GetComponent<engineScript>().chosen2.gameObject.name;
@@ -31,7 +43,7 @@ public class collider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
     void OnCollisionEnter(Collision other)
     {
@@ -101,6 +113,28 @@ public class collider : MonoBehaviour
             Destroy(other.gameObject);
            
         }
+        if ((other.gameObject.CompareTag("food") && !left))
+        {
+            if (UIcheck == true)
+            {
+                UIcheck = false;
+                holder = UI1.transform.Find( other.collider.gameObject.name + "_UI").gameObject;
+            colorOn = holder.GetComponent<Image>().color ;
+            colorOn.a = 1;
+            holder.GetComponent<Image>().color = colorOn;
+
+          
+                Debug.Log("passed");
+
+                
+                StartCoroutine(ExecuteAfterTimeUI(1f));
+                StartCoroutine(ExecuteAfterTimeCheck(1f));
+
+            }
+            
+        }
+
+
 
     }
     private void OnCollisionExit(Collision collision)
@@ -109,6 +143,10 @@ public class collider : MonoBehaviour
         {
             list.SetActive(false);
             icon.SetActive(true);
+        }
+        if (holder != null)
+        {
+            
         }
     }
 
@@ -122,6 +160,39 @@ public class collider : MonoBehaviour
     {
         checkGrab = false;
        // Debug.Log(checkGrab);
+
+    }
+
+    IEnumerator ExecuteAfterTimeUI(float time)
+    {
+
+        
+      
+      
+        yield return new WaitForSeconds(time);
+
+        
+        //holder.GetComponent<Image>().color = colorOff;
+        colorOn = holder.GetComponent<Image>().color;
+        colorOn.a = 0;
+        holder.GetComponent<Image>().color = colorOn;
+        holder = null;
+       
+
+
+    }
+    IEnumerator ExecuteAfterTimeCheck(float time)
+    {
+
+
+       
+
+        yield return new WaitForSeconds(time + 0.2f);
+
+        UIcheck = true;
+        //holder.GetComponent<Image>().color = colorOff;
+
+
 
     }
 
