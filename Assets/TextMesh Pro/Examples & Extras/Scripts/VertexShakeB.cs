@@ -8,9 +8,9 @@ namespace TMPro.Examples
     public class VertexShakeB : MonoBehaviour
     {
 
-        public float AngleMultiplier = 1.0f;
-        public float SpeedMultiplier = 1.0f;
-        public float CurveScale = 1.0f;
+        public float AngleMultiplier = .5f;
+        public float SpeedMultiplier = .5f;
+        public float CurveScale = .5f;
 
         private TMP_Text m_TextComponent;
         private bool hasTextChanged;

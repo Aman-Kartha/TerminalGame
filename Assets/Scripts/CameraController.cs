@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && check)
         {
 
-            StartCoroutine(Shake(0.5f));
+            StartCoroutine(Shake(0.2f));
             StartCoroutine(changeAfterTime(0.5f, views[0]));
 
             StartCoroutine(ExecuteAfterTime(2f, views[1]));
@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && check)
         {
 
-            StartCoroutine(Shake(0.5f));
+            StartCoroutine(Shake(0.2f));
             StartCoroutine(changeAfterTime(0.5f, views[2]));
 
             StartCoroutine(ExecuteAfterTime(2f, views[3]));
@@ -48,7 +48,7 @@ public class CameraController : MonoBehaviour
         }*/
         if (Input.GetKeyDown(KeyCode.E) && check)
         {
-            StartCoroutine(Shake(0.5f));
+            StartCoroutine(Shake(0.2f));
             StartCoroutine(changeAfterTime(0.5f, views[6]));
 
             StartCoroutine(ExecuteAfterTime(2f, views[7]));
