@@ -195,6 +195,20 @@ public class collider : MonoBehaviour
 
 
     }
+    IEnumerator FadeOutMaterial(GameObject g , float fadeSpeed)
+    {
+        Renderer rend = g.transform.GetComponent<Renderer>();
+        Color matColor = rend.material.color;
+        float alphaValue = rend.material.color.a;
+
+        while (rend.material.color.a > 0f)
+        {
+            alphaValue -= Time.deltaTime / fadeSpeed;
+            rend.material.color = new Color(matColor.r, matColor.g, matColor.b, alphaValue);
+            yield return null;
+        }
+        rend.material.color = new Color(matColor.r, matColor.g, matColor.b, 0f);
+    }
 
 
 

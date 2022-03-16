@@ -65,6 +65,7 @@ public class engineScript : MonoBehaviour
         }
         if (chosen == null) {
             text.fontStyle = FontStyles.Strikethrough;
+            
         }
         if (chosen1 == null)
         {
