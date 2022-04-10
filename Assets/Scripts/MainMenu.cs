@@ -12,4 +12,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void playTutorial()
+    {
+        SceneManager.LoadScene(4);
+    }
 }
