@@ -26,6 +26,16 @@ public class engineScript : MonoBehaviour
     [SerializeField]
     GameObject heart3;
 
+
+    [SerializeField]
+    GameObject line;
+
+    [SerializeField]
+    GameObject line1;
+
+    [SerializeField]
+    GameObject line2;
+
     void Awake()
     {
         gameobjectList = new List<GameObject>(GameObject.FindGameObjectsWithTag("food"));
@@ -64,16 +74,18 @@ public class engineScript : MonoBehaviour
             SceneManager.LoadScene(2);
         }
         if (chosen == null) {
-            text.fontStyle = FontStyles.Strikethrough;
-            
+            //text.fontStyle = FontStyles.Strikethrough;
+            line.SetActive(true);
         }
         if (chosen1 == null)
         {
-            text2.fontStyle = FontStyles.Strikethrough;
+            // text2.fontStyle = FontStyles.Strikethrough;
+            line1.SetActive(true);
         }
         if (chosen2 == null)
         {
-            text3.fontStyle = FontStyles.Strikethrough;
+            //text3.fontStyle = FontStyles.Strikethrough;
+            line2.SetActive(true);
         }
 
 
