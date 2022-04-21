@@ -17,4 +17,12 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.W))
+        {
+            playGame();
+        }
+    }
 }
