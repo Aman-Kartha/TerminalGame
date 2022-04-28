@@ -4,10 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
+
+    [SerializeField]
+    bool check;
    public void playGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(5);
     }
+   
     public void resetGame()
     {
         SceneManager.LoadScene(1);
@@ -22,7 +26,11 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.W))
         {
-            playGame();
+            if (check)
+                playTutorial();
+            else
+                playGame();
+
         }
     }
 }

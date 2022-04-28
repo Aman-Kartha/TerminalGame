@@ -22,7 +22,8 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Q) && check)
+        if (Input.GetKeyDown(KeyCode.Q) && check  &&
+            currentView != views[1])
         {
 
             StartCoroutine(Shake(0.2f));
@@ -31,7 +32,8 @@ public class CameraController : MonoBehaviour
             StartCoroutine(ExecuteAfterTime(2f, views[1]));
 
         }
-        if (Input.GetKeyDown(KeyCode.W) && check)
+        if (Input.GetKeyDown(KeyCode.W) && check &&
+            currentView != views[3])
         {
 
             StartCoroutine(Shake(0.2f));
@@ -46,7 +48,8 @@ public class CameraController : MonoBehaviour
             
             StartCoroutine(ExecuteAfterTime(2f, views[5])); 
         }*/
-        if (Input.GetKeyDown(KeyCode.E) && check)
+        if (Input.GetKeyDown(KeyCode.E) && check &&
+            currentView != views[7])
         {
             StartCoroutine(Shake(0.2f));
             StartCoroutine(changeAfterTime(0.5f, views[6]));
