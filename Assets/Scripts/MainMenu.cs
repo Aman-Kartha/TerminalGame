@@ -7,7 +7,10 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField]
     bool check;
-   public void playGame()
+
+    [SerializeField]
+    bool check2;
+    public void playGame()
     {
         SceneManager.LoadScene(5);
     }
@@ -20,11 +23,13 @@ public class MainMenu : MonoBehaviour
     public void playTutorial()
     {
         SceneManager.LoadScene(4);
+
+        
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.W))
         {
             if (check)
                 playTutorial();
@@ -32,5 +37,13 @@ public class MainMenu : MonoBehaviour
                 playGame();
 
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (check2)
+            {
+                playTutorial();
+            }
+        }
+
     }
 }
