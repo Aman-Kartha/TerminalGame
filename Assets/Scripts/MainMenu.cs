@@ -10,6 +10,10 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField]
     bool check2;
+
+    [SerializeField]
+    bool check3;
+
     public void playGame()
     {
         SceneManager.LoadScene(5);
@@ -26,9 +30,23 @@ public class MainMenu : MonoBehaviour
 
         
     }
+    public void hardReset()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.W)||(Input.GetKeyDown(KeyCode.Q)) )
+        {
+            if(check3)
+            {
+                hardReset();
+            }
+        }
+
+
         if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.W))
         {
             if (check)

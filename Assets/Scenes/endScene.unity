@@ -513,7 +513,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1572432160}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: resetGame
+        m_MethodName: hardReset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -676,6 +676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   check: 0
   check2: 0
+  check3: 1
 --- !u!1 &2136456445
 GameObject:
   m_ObjectHideFlags: 0
